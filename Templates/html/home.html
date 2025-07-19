@@ -1,0 +1,224 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}BodhGaya Joshi Mathh{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block hero %}
+{% include 'partials/carousel.html' %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    
+
+{% endblock %}
+{% block content %}
+
+<!--Sec-Card-->
+<div class="">
+  <div class="container-fluid py-5 position-relative"
+    style="background-image: url('{% static 'Home/cardbacground.jpg' %}'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 400px;">
+    <!-- Overlay color layer -->
+    <div
+      style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1;">
+    </div>
+    <div class="row justify-content-center gap-4 position-relative" style="z-index: 2;">
+      {% for event in current_month_events %}
+      <div class="sec-card border-0 mb-3 px-0" style="width: 20rem; height: 25rem;">
+        <img src="{{ event.thumbnail.url }}" class="card-img-top" alt="{{ event.title }}"
+          style="height: 200px; object-fit: cover;">
+        <div class="card-body2">
+          <h5 class="text-truncate-2">{{ event.title }}</h5>
+          <p class="card-text">{{ event.description|truncatechars:120 }}</p>
+          <a href="{{ event.get_absolute_url }}" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-white text-center">No events this month.</p>
+      {% endfor %}
+      <div class="text-center mt-4 position-relative" style="z-index: 2;">
+        <a href="{% url 'Home:events' %}" class="btn btn-outline-light">See All Events</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Announcements -->
+<div class="container-fluid announcements-section">
+  <h2 class="announcements-heading">Announcements</h2>
+  <div id="spiritualCarousel" class=" carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      {% for group in announcement_groups %}
+      <!-- Slide 1 -->
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="d-flex justify-content-center gap-4 flex-wrap">
+          <!-- Card 1 -->
+          {% for announcement in group %}
+          {% if announcement %}
+          <div class="announcements-card">
+            <div class="announcements-card-body">
+              <h5 class="announcements-card-title">{{announcement.keywords|title|truncatechars:40}}</h5>
+              <p class="announcements-card-text">{{announcement.content|truncatechars:120}}</p>
+              <a href="{{announcement.get_absolute_url}}" class="btn btn-custom">Join Now</a>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      {% empty %}
+      <div class="carousel-item active">
+        <div class="d-flex justify-content-center gap-4 flex-wrap">
+          <div class="announcements-card">
+            <div class="announcements-card-body text-center">
+              <h5 class="announcements-card-title">No Announcements</h5>
+              <p class="announcements-card-text">Please check back later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#spiritualCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#spiritualCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+<!-- Tithi Section -->
+<div class="tithi-wrapper">
+  <div class="tithi-box">
+    <div class="tithi-icon">🪔</div>
+    <p class="tithi-main-text">
+      ಶ್ರೀ ವಿಶ್ವಾವಸು ಸಂವತ್ಸರ, ಜ್ಯೇಷ್ಠ, ಶುಕ್ಲ ದ್ವಾದಶಿ, ಸ್ವಾತಿ
+    </p>
+    <p class="tithi-sub-text">
+      Sri Vishwaavasu Samvatsara, Jyeshtha, Shukla Dwadashi, Swati
+    </p>
+    <p class="tithi-date">
+      Sun, 8 June 2025
+    </p>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Event Section -->
+<section class="events-section py-5">
+  <div class="container">
+    <h2 class="text-center section-title mb-5">🪔 Spiritual Events</h2>
+    <div class="row justify-content-center">
+
+      <!-- Event Card 1 -->
+      <div class="col-lg-10 col-md-11 mb-4">
+        <div class="event-card d-flex flex-md-row flex-column">
+          <div class="event-content p-4 flex-grow-1">
+            <span class="event-badge">26 Jun 2025</span>
+            <h5 class="event-title mt-2">
+              146th Aradhana Mahotsava of Jagadguru Sri Sri Sri Vruddha Narasimha Bharati Mahaswamiji
+            </h5>
+            <p class="event-desc">
+              The 146th Aradhana Mahotsava of the 32nd Jagadguru Shankaracharya Sri Sri Sri Narasimha Bharati
+              Mahaswamiji was celebrated today on May 28, 2025 here at Sringeri.
+            </p>
+            <p class="event-updated">Last updated 3 mins ago</p>
+          </div>
+          <div class="event-image-wrapper">
+            <img src="{% static 'Home/event1.jpg' %}" alt="Event image">
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 2 -->
+      <div class="col-lg-10 col-md-11 mb-4">
+        <div class="event-card d-flex flex-md-row flex-column">
+          <div class="event-content p-4 flex-grow-1">
+            <span class="event-badge">26 Jun 2025</span>
+            <h5 class="event-title mt-2">
+              146th Aradhana Mahotsava of Jagadguru Sri Sri Sri Vruddha Narasimha Bharati Mahaswamiji
+            </h5>
+            <p class="event-desc">
+              The 146th Aradhana Mahotsava of the 32nd Jagadguru Shankaracharya Sri Sri Sri Narasimha Bharati
+              Mahaswamiji was celebrated today on May 28, 2025 here at Sringeri.
+            </p>
+            <p class="event-updated">Last updated 3 mins ago</p>
+          </div>
+          <div class="event-image-wrapper">
+            <img src="{% static 'Home/event2.jpg' %}" alt="Event image">
+          </div>
+        </div>
+      </div>
+
+      <!-- Event Card 3 -->
+      <div class="col-lg-10 col-md-11 mb-4">
+        <div class="event-card d-flex flex-md-row flex-column">
+          <div class="event-content p-4 flex-grow-1">
+            <span class="event-badge">New</span>
+            <h5 class="event-title mt-2">
+              146th Aradhana Mahotsava of Jagadguru Sri Sri Sri Vruddha Narasimha Bharati Mahaswamiji
+            </h5>
+            <p class="event-desc">
+              The 146th Aradhana Mahotsava of the 32nd Jagadguru Shankaracharya Sri Sri Sri Narasimha Bharati
+              Mahaswamiji was celebrated today on May 28, 2025 here at Sringeri.
+            </p>
+            <p class="event-updated">Last updated 3 mins ago</p>
+          </div>
+          <div class="event-image-wrapper">
+            <img src="{% static 'Home/event3.jpg' %}" alt="Event image">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<div class="responsive-image-container">
+  <img src="{% static 'Home/footer-collage-web.webp' %}" alt="Footer Collage" loading="lazy" decoding="async"
+    class="footer-collage-image">
+  <div class="footer-overlay">
+    <h2>ॐ नमः शिवाय</h2>
+  </div>
+</div>
+
+
+
+
+<!-- Connect with Us -->
+<div class="connect-clean-section">
+  <div class="container text-center py-4">
+    <h3 class="connect-heading mb-4">Connect with Us</h3>
+    <div class="social-links d-flex justify-content-center flex-wrap gap-4">
+      <a href="https://facebook.com/yourpage" target="_blank" class="social-icon-link">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/yourhandle" target="_blank" class="social-icon-link">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://instagram.com/yourprofile" target="_blank" class="social-icon-link">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-icon-link">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://youtube.com/yourchannel" target="_blank" class="social-icon-link">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

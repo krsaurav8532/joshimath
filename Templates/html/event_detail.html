@@ -1,0 +1,238 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block title %}{{ event.title }} | BodhGaya Joshi Mathh{% endblock %}
+
+{% block extra_head %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=PT+Serif&display=swap" rel="stylesheet">
+<style>
+    .event-detail-container {
+        background-color: #fffaf2;
+        padding: 3rem 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 10px 30px rgba(208, 72, 67, 0.1);
+        font-family: 'PT Serif', serif;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+
+    .event-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+        color: #D04843;
+        margin-bottom: 1rem;
+    }
+
+
+    .event-meta {
+        font-size: 1rem;
+        color: #555;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .event-meta strong {
+        color: #222;
+    }
+
+    .event-image {
+        width: 100%;
+        max-height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .section-divider {
+        height: 4px;
+        width: 80px;
+        background-color: #D04843;
+        margin: 2rem auto 1.5rem auto;
+        border-radius: 10px;
+    }
+
+    .event-description {
+        font-size: 1.1rem;
+        color: #333;
+        line-height: 1.8;
+        padding: 0 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .event-title {
+            font-size: 2rem;
+        }
+
+        .event-description {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .event-title {
+            font-size: 1.75rem;
+        }
+
+        .event-image {
+            max-height: 300px;
+        }
+    }
+
+    /* open images  */
+
+    .lightbox-overlay {
+        display: none;
+        position: fixed;
+        z-index: 1050;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .lightbox-overlay.show {
+        display: flex;
+    }
+
+    .lightbox-overlay img {
+        max-width: 90%;
+        max-height: 80vh;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #fff;
+    }
+
+    .lightbox-arrow {
+        position: absolute;
+        top: 50%;
+        font-size: 2.5rem;
+        color: white;
+        cursor: pointer;
+        padding: 0 20px;
+        user-select: none;
+    }
+    .lightbox-overlay:after {
+    content: "✖";
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+
+    #lightbox-left {
+        left: 10px;
+    }
+
+    #lightbox-right {
+        right: 10px;
+    }
+
+    .lightbox-arrow:hover {
+        color: #FFAD60;
+    }
+
+    @media (max-width: 768px) {
+        .lightbox-arrow {
+            font-size: 2rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="event-detail-container">
+        <h1 class="event-title">{{ event.title }}</h1>
+
+        <div class="event-meta">
+            <p><strong>📅 Date:</strong> {{ event.date|date:"d M Y, h:i A" }}</p>
+            <p><strong>📍 Location:</strong> {{ event.location }}</p>
+        </div>
+
+        <img src="{{ event.thumbnail.url }}" alt="{{ event.title }}" class="img-fluid event-image">
+
+        <div class="section-divider"></div>
+
+        <div class="event-description">
+            {{ event.description|linebreaks }}
+        </div>
+        {% if event.images.all %}
+        <div class="row mb-4">
+            {% for image in event.images.all %}
+            <div class="col-md-4 col-sm-6 mb-3">
+                <img src="{{ image.image.url }}" class="img-fluid rounded shadow-sm"
+                    onclick="openLightbox({{ forloop.counter0 }})" style="cursor: zoom-in;">
+            </div>
+            {% endfor %}
+
+
+        </div>
+        {% endif %}
+    </div>
+</div>
+<div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Full Image">
+    <div id="lightbox-left" class="lightbox-arrow">&#10094;</div>
+    <div id="lightbox-right" class="lightbox-arrow">&#10095;</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let currentIndex = 0;
+    const imageUrls = [
+        {% for image in event.images.all %}
+    "{{ image.image.url }}"{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+];
+
+    function openLightbox(index) {
+        currentIndex = index;
+        document.getElementById('lightbox-img').src = imageUrls[currentIndex];
+        document.getElementById('lightbox').classList.add('show');
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('show');
+    }
+
+    function showPrevImage() {
+        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+        document.getElementById('lightbox-img').src = imageUrls[currentIndex];
+    }
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % imageUrls.length;
+        document.getElementById('lightbox-img').src = imageUrls[currentIndex];
+    }
+
+    document.getElementById('lightbox-left').addEventListener('click', function (e) {
+        e.stopPropagation();
+        showPrevImage();
+    });
+
+    document.getElementById('lightbox-right').addEventListener('click', function (e) {
+        e.stopPropagation();
+        showNextImage();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function (e) {
+        if (!document.getElementById('lightbox').classList.contains('show')) return;
+
+        if (e.key === 'ArrowRight') showNextImage();
+        else if (e.key === 'ArrowLeft') showPrevImage();
+        else if (e.key === 'Escape') closeLightbox();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,103 @@
+<!-- about.html -->
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block title %}About | BodhGaya Joshi Mathh{% endblock %}
+
+    {% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    
+    {% endblock %}
+{% block content %}
+<section class="about-hero-section text-white d-flex align-items-center justify-content-center position-relative" style="background-image: url('{% static 'Home/event1.jpg' %}'); background-size: cover; background-position: center; min-height: 60vh;">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+  <div class="container text-center position-relative" style="z-index: 2;">
+    <h1 class="display-4 fw-bold glowing-text">ॐ नमः शिवाय</h1>
+    <p class="lead mt-3">Discover the divine legacy and spiritual essence of BodhGaya Joshi Mathh</p>
+  </div>
+</section>
+
+<section class="about-content-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h2 class="mb-4 text-center section-title">Our Sacred Journey</h2>
+        <p class="fs-5 text-justify">
+          Established with the blessings of revered sages, <strong>BodhGaya Joshi Mathh</strong> is a spiritual sanctuary rooted in the teachings of Sanatana Dharma. Our Mathh has been a center for Vedic knowledge, Advaita philosophy, and cultural heritage preservation for generations.
+        </p>
+        <p class="fs-5 text-justify">
+          From the daily rituals to grand festivals, every moment here vibrates with sacredness. Pilgrims, scholars, and seekers from across the globe visit us to seek blessings, wisdom, and peace.
+        </p>
+        <p class="fs-5 text-justify">
+          Our mission is to continue guiding humanity through spiritual evolution, cultural enlightenment, and compassionate service. We welcome you to explore, experience, and elevate your inner self with us.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vision-values-section py-5 bg-light">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow border-0">
+          <div class="card-body">
+            <i class="fas fa-dharmachakra fs-1 text-primary"></i>
+            <h5 class="mt-3">Our Vision</h5>
+            <p>To create a world anchored in Vedic wisdom, unity, and divine harmony.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow border-0">
+          <div class="card-body">
+            <i class="fas fa-hands-helping fs-1 text-success"></i>
+            <h5 class="mt-3">Our Mission</h5>
+            <p>Preserving traditions, nurturing spiritual growth, and empowering communities with timeless teachings.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow border-0">
+          <div class="card-body">
+            <i class="fas fa-users fs-1 text-warning"></i>
+            <h5 class="mt-3">Our Values</h5>
+            <p>Compassion, Discipline, Wisdom, Service, and Devotion in every action.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section py-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">Our Spiritual Guides</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card text-center h-100 border-0 shadow">
+          <img src="{% static 'Home/guru1.jpg' %}" class="card-img-top" alt="Spiritual Guru">
+          <div class="card-body">
+            <h5 class="card-title">Jagadguru Sri Narasimha Bharati Mahaswamiji</h5>
+            <p class="card-text">A beacon of Advaita and a guardian of timeless wisdom, guiding seekers with profound insight.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card text-center h-100 border-0 shadow">
+          <img src="{% static 'Home/guru2.jpg' %}" class="card-img-top" alt="Spiritual Guru">
+          <div class="card-body">
+            <h5 class="card-title">Sri Vidushekhara Bharati Mahaswamiji</h5>
+            <p class="card-text">A modern sage preserving tradition with contemporary relevance and heartfelt compassion.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more if needed -->
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
