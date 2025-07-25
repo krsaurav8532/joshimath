@@ -1,0 +1,140 @@
+.event-detail-container {
+    background-color: #fffaf2;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(208, 72, 67, 0.1);
+    font-family: 'PT Serif', serif;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+.event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #D04843;
+    margin-bottom: 1rem;
+}
+
+
+.event-meta {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.event-meta strong {
+    color: #222;
+}
+
+.event-image {
+    width: 100%;
+    max-height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.section-divider {
+    height: 4px;
+    width: 80px;
+    background-color: #D04843;
+    margin: 2rem auto 1.5rem auto;
+    border-radius: 10px;
+}
+
+.event-description {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    padding: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .event-title {
+        font-size: 2rem;
+    }
+
+    .event-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .event-title {
+        font-size: 1.75rem;
+    }
+
+    .event-image {
+        max-height: 300px;
+    }
+}
+
+/* open images  */
+
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.lightbox-overlay.show {
+    display: flex;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #fff;
+}
+
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    padding: 0 20px;
+    user-select: none;
+}
+
+.lightbox-overlay:after {
+    content: "✖";
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+#lightbox-left {
+    left: 10px;
+}
+
+#lightbox-right {
+    right: 10px;
+}
+
+.lightbox-arrow:hover {
+    color: #FFAD60;
+}
+
+@media (max-width: 768px) {
+    .lightbox-arrow {
+        font-size: 2rem;
+    }
+}

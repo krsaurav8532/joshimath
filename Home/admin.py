@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, EventImage, Announcement, AnnouncementImage, StotraCategory, Contact, Stotra
+from .models import Event, EventImage, Announcement, AnnouncementImage, StotraCategory, Contact, Stotra, Carausel
 from django.utils.text import slugify
 
 # Inline for EventImage
@@ -78,3 +78,7 @@ class ContactAdmin(admin.ModelAdmin):
             obj.slug = slugify(obj.name)
         super().save_model(request, obj, form, change)
         
+@admin.register(Carausel)
+class CarauselAdmin(admin.ModelAdmin):
+    list_display = ('title', 'image')
+    search_fields = ('title',)

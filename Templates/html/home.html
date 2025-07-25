@@ -1,12 +1,10 @@
 {% extends 'html/base.html' %}
 {% load static %}
-{% block title %}BodhGaya Joshi Mathh{% endblock %}
+{% block title %}Home{% endblock %}
 {% block extra_head %}{% endblock %}
 {% block hero %}
 {% include 'partials/carousel.html' %}
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    
-
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 {% block content %}
 
@@ -119,66 +117,28 @@
   <div class="container">
     <h2 class="text-center section-title mb-5">🪔 Spiritual Events</h2>
     <div class="row justify-content-center">
-
+      {% for e in event_home %}
       <!-- Event Card 1 -->
-      <div class="col-lg-10 col-md-11 mb-4">
-        <div class="event-card d-flex flex-md-row flex-column">
-          <div class="event-content p-4 flex-grow-1">
-            <span class="event-badge">26 Jun 2025</span>
-            <h5 class="event-title mt-2">
-              146th Aradhana Mahotsava of Jagadguru Sri Sri Sri Vruddha Narasimha Bharati Mahaswamiji
-            </h5>
-            <p class="event-desc">
-              The 146th Aradhana Mahotsava of the 32nd Jagadguru Shankaracharya Sri Sri Sri Narasimha Bharati
-              Mahaswamiji was celebrated today on May 28, 2025 here at Sringeri.
-            </p>
-            <p class="event-updated">Last updated 3 mins ago</p>
-          </div>
-          <div class="event-image-wrapper">
-            <img src="{% static 'Home/event1.jpg' %}" alt="Event image">
-          </div>
-        </div>
+  
+    <div class="col-lg-10 col-md-11 mb-4">
+  <a href="{{e.get_absolute_url}}" class="text-decoration-none text-dark">
+    <div class="event-card d-flex flex-md-row flex-column">
+      <div class="event-content p-4 flex-grow-1">
+        <span class="event-badge">{{ e.date }}</span>
+        <h5 class="event-title mt-2">{{ e.title }}</h5>
+        <p class="event-desc">
+          {{ e.description|truncatechars:250 }}
+        </p>
       </div>
+      <div class="event-image-wrapper">
+        <img src="{{ e.thumbnail.url }}" alt="Event image">
+      </div>
+    </div>
+  </a>
+</div>
 
-      <!-- Event Card 2 -->
-      <div class="col-lg-10 col-md-11 mb-4">
-        <div class="event-card d-flex flex-md-row flex-column">
-          <div class="event-content p-4 flex-grow-1">
-            <span class="event-badge">26 Jun 2025</span>
-            <h5 class="event-title mt-2">
-              146th Aradhana Mahotsava of Jagadguru Sri Sri Sri Vruddha Narasimha Bharati Mahaswamiji
-            </h5>
-            <p class="event-desc">
-              The 146th Aradhana Mahotsava of the 32nd Jagadguru Shankaracharya Sri Sri Sri Narasimha Bharati
-              Mahaswamiji was celebrated today on May 28, 2025 here at Sringeri.
-            </p>
-            <p class="event-updated">Last updated 3 mins ago</p>
-          </div>
-          <div class="event-image-wrapper">
-            <img src="{% static 'Home/event2.jpg' %}" alt="Event image">
-          </div>
-        </div>
-      </div>
-
-      <!-- Event Card 3 -->
-      <div class="col-lg-10 col-md-11 mb-4">
-        <div class="event-card d-flex flex-md-row flex-column">
-          <div class="event-content p-4 flex-grow-1">
-            <span class="event-badge">New</span>
-            <h5 class="event-title mt-2">
-              146th Aradhana Mahotsava of Jagadguru Sri Sri Sri Vruddha Narasimha Bharati Mahaswamiji
-            </h5>
-            <p class="event-desc">
-              The 146th Aradhana Mahotsava of the 32nd Jagadguru Shankaracharya Sri Sri Sri Narasimha Bharati
-              Mahaswamiji was celebrated today on May 28, 2025 here at Sringeri.
-            </p>
-            <p class="event-updated">Last updated 3 mins ago</p>
-          </div>
-          <div class="event-image-wrapper">
-            <img src="{% static 'Home/event3.jpg' %}" alt="Event image">
-          </div>
-        </div>
-      </div>
+      
+{% endfor %}
 
     </div>
   </div>

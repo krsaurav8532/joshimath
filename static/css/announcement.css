@@ -1,0 +1,90 @@
+body {
+    background-color: #fdfaf5;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.section-header {
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.section-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.section-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.announcement-card {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-left: 6px solid #d94d0a;
+    transition: transform 0.3s ease;
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+}
+
+.announcement-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.announcement-date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.announcement-description {
+    font-size: 15px;
+    color: #444;
+    flex-grow: 1;
+}
+
+.announcement-link {
+    margin-top: 16px;
+}
+
+.announcement-link a {
+    padding: 8px 20px;
+    background-color: #d94d0a;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.announcement-link a:hover {
+    background-color: #bb3e00;
+}
+
+@media (max-width: 576px) {
+    .announcement-title {
+        font-size: 18px;
+    }
+
+    .announcement-description {
+        font-size: 14px;
+    }
+}

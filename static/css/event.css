@@ -7,3 +7,124 @@
   font-weight: 600;
   color: #D04843;
 }
+
+.event-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
+  color: #D04843;
+  font-weight: bold;
+}
+
+.event-text-glow {
+  font-family: 'Playfair Display', serif;
+  text-shadow: 0 0 10px #FFAD60, 0 0 20px #FFA500, 0 0 30px #FF4500;
+  color: #fff;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px #FFAD60, 0 0 20px #FFA500, 0 0 30px #FF4500;
+  }
+
+  50% {
+    text-shadow: 0 0 15px #FFD580, 0 0 25px #FF6347, 0 0 35px #FF4500;
+  }
+}
+
+
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+.nav-pills .nav-link {
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #198754;
+}
+
+
+
+
+
+/* calender */
+
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  color: #D04843;
+}
+
+#calendar {
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  background-color: #fffdf7;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(208, 72, 67, 0.15);
+  padding: 1rem;
+}
+
+.fc-toolbar-title {
+  font-family: 'Playfair Display', serif;
+  color: #D04843;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.fc-button {
+  background-color: #D04843 !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 500;
+  border-radius: 8px !important;
+  padding: 5px 10px !important;
+}
+
+.fc-button:hover {
+  background-color: #a2362f !important;
+}
+
+.fc .fc-daygrid-day-number {
+  color: #444;
+  font-weight: 600;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: #ffefdd;
+  border: 2px solid #D04843;
+}
+
+.fc-event {
+  background-color: #FFA552;
+  border: none;
+  color: white;
+  padding: 2px 6px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-family: 'PT Serif', serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fc-event:hover {
+  background-color: #e28d3c;
+  cursor: pointer;
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: #D04843;
+  font-weight: 600;
+}
+
+.fc .fc-scrollgrid {
+  border-color: #f5e9d6;
+}

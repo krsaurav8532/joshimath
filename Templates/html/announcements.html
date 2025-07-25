@@ -2,125 +2,36 @@
 {% extends 'html/base.html' %}
 {% load static %}
 
-{% block title %}Announcements | BodhGaya Joshi Mathh{% endblock %}
+{% block title %}Announcements{% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="{% static 'css/announcements.css' %}">
-<style>
-    body {
-      background-color: #fdfaf5;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    .section-header {
-      background-image: url("{% static 'Home/cardbacground.jpg' %}");
-      background-size: cover;
-      background-position: center;
-      padding: 80px 0;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
-
-    .section-header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .section-header .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .announcement-card {
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      border-left: 6px solid #d94d0a;
-      transition: transform 0.3s ease;
-    }
-
-    .announcement-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .announcement-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #333;
-    }
-
-    .announcement-date {
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 12px;
-    }
-
-    .announcement-description {
-      font-size: 15px;
-      color: #444;
-      flex-grow: 1;
-    }
-
-    .announcement-link {
-      margin-top: 16px;
-    }
-
-    .announcement-link a {
-      padding: 8px 20px;
-      background-color: #d94d0a;
-      color: #fff;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .announcement-link a:hover {
-      background-color: #bb3e00;
-    }
-
-    @media (max-width: 576px) {
-      .announcement-title {
-        font-size: 18px;
-      }
-      .announcement-description {
-        font-size: 14px;
-      }
-    }
-</style>
+<link rel="stylesheet" href="{% static 'css/announcement.css' %}">
 
 {% endblock %}
 {% block content %}
 <!-- Header Section -->
-  <div class="section-header">
-    <div class="container">
-      <h1 class="display-5 fw-bold">Announcements</h1>
-      <p class="lead">Latest updates and spiritual activities from our temple community</p>
-    </div>
+<div class="section-header" style="background-image: url('{% static 'Home/cardbacground.jpg' %}');">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Announcements</h1>
+    <p class="lead">Latest updates and spiritual activities from our temple community</p>
   </div>
+</div>
 
-  <!-- Announcements Section -->
-  <div class="container py-5">
+<!-- Announcements Section -->
+<div class="container py-5">
   <div class="row g-4" id="announcement-container">
     {% for a in announcements %}
-      <div class="col-12 col-md-6 col-lg-4 announcement-item">
-        <div class="announcement-card">
-          <div class="announcement-title">{{ a.title|title }}</div>
-          <div class="announcement-date">{{a.location}}, {{ a.date|date:"F d, Y" }}</div>
-          {% if a.slug %}
-            <div class="announcement-link">
-              <a href="{{ a.slug }}" target="_blank">Know More</a>
-            </div>
-          {% endif %}
+    <div class="col-12 col-md-6 col-lg-4 announcement-item">
+      <div class="announcement-card">
+        <div class="announcement-title">{{ a.title|title }}</div>
+        <div class="announcement-date">{{a.location}}, {{ a.date|date:"F d, Y" }}</div>
+        {% if a.slug %}
+        <div class="announcement-link">
+          <a href="{{ a.slug }}" target="_blank">Know More</a>
         </div>
+        {% endif %}
       </div>
+    </div>
     {% endfor %}
   </div>
 
@@ -132,53 +43,5 @@
 
 {% endblock %}
 {% block scripts %}
-<script>
-  let offset = 10;
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const container = document.getElementById('announcement-container');
-
-  loadMoreBtn.addEventListener('click', () => {
-    loadMoreBtn.disabled = true;
-    loadMoreBtn.innerText = 'Loading...';
-
-    fetch(`?offset=${offset}`, {
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      const announcements = data.announcements;
-
-      if (announcements.length === 0) {
-        loadMoreBtn.innerText = 'No More Announcements';
-        loadMoreBtn.disabled = true;
-        return;
-      }
-
-      announcements.forEach(a => {
-        const col = document.createElement('div');
-        col.className = 'col-12 col-md-6 col-lg-4 announcement-item';
-
-        col.innerHTML = `
-          <div class="announcement-card">
-            <div class="announcement-title">${a.title}</div>
-            <div class="announcement-date">${a.location}, ${a.date}</div>
-            ${a.link ? `<div class="announcement-link"><a href="${a.link}" target="_blank">Know More</a></div>` : ''}
-          </div>
-        `;
-        container.appendChild(col);
-      });
-
-      offset += 10;
-      loadMoreBtn.disabled = false;
-      loadMoreBtn.innerText = 'Load More';
-    })
-    .catch(err => {
-      console.error(err);
-      loadMoreBtn.innerText = 'Try Again';
-      loadMoreBtn.disabled = false;
-    });
-  });
-</script>
+<script src="{% static 'js/announcement.js' %}"></script>
 {% endblock %}

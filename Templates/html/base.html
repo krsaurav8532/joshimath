@@ -8,9 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="description"
-        content="BodhGaya Joshi Mathh - A serene place for spiritual retreat and community gatherings.">
-    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="BodhGaya Joshi Mathh - A serene place for spiritual retreat and community gatherings.">
+    <meta name="keywords" content="BodhGaya, Joshi Mathh, Spiritual Retreat, Community, Temple, Pilgrimage">
+    <meta name="author" content="BodhGaya Joshi Mathh">
+    <link rel="icon" href="{% static 'images/logo2.png' %}" type="image/x-icon">
+    <title>{% block title %}{% endblock %}  | Bodh Gaya Math</title>
     <!-- Include Bootstrap JS at end of body -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -24,8 +26,6 @@
         rel="stylesheet">
     <!-- Your custom styles -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-
     {% block extra_head %}{% endblock %}
 </head>
 

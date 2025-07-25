@@ -1,17 +1,23 @@
-  <nav class="navbar-container">
-        <div class="navbar-inner container">
-            <a class="logo" href="{% url 'Home:index' %}">BodhGaya Joshi Mathh</a>
+{% load static %}
+<nav class="navbar-container">
+    <div class="navbar-inner container">
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">&#9776;</button>
+        <a class="navbar-brand logo" href="{% url 'Home:index' %}">
+            <img src="{% static "images/logo2.png" %}" alt="Logo" width="40" height="40"
+                class="d-inline-block">
+            Shree Bodh Gaya Math
+        </a>
 
-            <ul class="nav-links" id="menuList">
-                <!-- Events Dropdown -->
-                <li class="nav-item dropdown">
-                    <a href="{% url 'Home:events' %}">Events</a>
-                </li>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">&#9776;</button>
 
-                <!-- Pilgrim Info -->
-                <!-- <li class="nav-item dropdown">
+        <ul class="nav-links" id="menuList">
+            <!-- Events Dropdown -->
+            <li class="nav-item dropdown">
+                <a href="{% url 'Home:events' %}">Events</a>
+            </li>
+
+            <!-- Pilgrim Info -->
+            <!-- <li class="nav-item dropdown">
                     <a href="#">Pilgrim Info</a>
                     <ul class="dropdown-menu">
                         <li><a href="#">How to Reach</a></li>
@@ -20,31 +26,31 @@
                     </ul>
                 </li> -->
 
-                <!-- Resources -->
-                <li class="nav-item dropdown">
-                    <a href="#">Resources</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url "Home:stotras" %}">Stotras</a></li>
-                        <li><a href="#">Scriptures</a></li>
-                        <li><a href="#">Videos</a></li>
-                    </ul>
-                </li>
+            <!-- Resources -->
+            <li class="nav-item dropdown">
+                <a href="#">Resources</a>
+                <ul class="dropdown-menu">
+                    <li><a href='{% url "Home:stotras" %}'>Stotras</a></li>
+                    <li><a href="#">Scriptures</a></li>
+                    <li><a href="#">Videos</a></li>
+                </ul>
+            </li>
 
-                <!-- Online Services -->
-                <li class="nav-item dropdown">
-                    <a href="#">Online Services</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Donate</a></li>
-                        <li><a href="#">Pooja Booking</a></li>
-                        <li><a href="#">E-Pass</a></li>
-                    </ul>
-                </li>
+            <!-- Online Services -->
+            <li class="nav-item dropdown">
+                <a href="#">Online Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Pooja Booking</a></li>
+                    <li><a href="#">E-Pass</a></li>
+                </ul>
+            </li>
 
-                <!-- About -->
-                <li><a href="{% url 'Home:about' %}">About</a></li>
+            <!-- About -->
+            <li><a href="{% url 'Home:about' %}">About</a></li>
 
-                <!-- Contact -->
-               <li><a href="{% url 'Home:contact' %}">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+            <!-- Contact -->
+            <li><a href="{% url 'Home:contact' %}">Contact</a></li>
+        </ul>
+    </div>
+</nav>
