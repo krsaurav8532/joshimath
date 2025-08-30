@@ -20,7 +20,7 @@ def Home(request):
     now = timezone.now()
     current_month_events = Event.objects.filter(date__year=now.year,date__month=now.month).order_by('date')[:3]  # Get only the first 3 events of the current month
     event_home = Event.objects.all()
-    carausel = Carausel.objects.all().order_by('-id')[:5]  # Get the latest 5 carausel items
+    carausel = Carausel.objects.all().order_by('-id')[:11]  # Get the latest 5 carausel items
     # Get all announcements, order by date, and chunk them into groups of 3
     all_announcements = Announcement.objects.all().order_by('-date')
     announcement_groups = chunked(list(all_announcements), 3)
