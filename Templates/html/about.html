@@ -6,37 +6,237 @@
 
     {% block extra_head %}
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
-    
+<style>
+  .glowing-text {
+    text-shadow: 0 0 15px #ffd700, 0 0 25px #fff, 0 0 40px #ffd700;
+    color: #fff8dc;
+  }
+
+  .section-title {
+    font-weight: 700;
+    color: #d4af37;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: "ॐ";
+    position: absolute;
+    right: -40px;
+    top: -10px;
+    font-size: 1.8rem;
+    color: #ffcc33;
+    opacity: 0.8;
+  }
+
+  .ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #c59d5f;
+    margin: 20px 0;
+  }
+
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .card-body h5 {
+    color: #c59d5f;
+    font-weight: bold;
+  }
+
+  .about-content-section p {
+    font-size: 0.95rem;
+    /* around 15px, clean & readable */
+    line-height: 1.6;
+  }
+
+  .vision-values-section .card {
+    background: linear-gradient(145deg, #fff8f0, #fff);
+  }
+
+  .team-section img {
+    border-radius: 50%;
+    border: 4px solid #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+  }
+</style>    
     {% endblock %}
 {% block content %}
-<section class="about-hero-section text-white d-flex align-items-center justify-content-center position-relative" style="background-image: url('{% static 'Home/event1.jpg' %}'); background-size: cover; background-position: center; min-height: 60vh;">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+<!-- Hero -->
+<section class="about-hero-section text-white d-flex align-items-center justify-content-center position-relative"
+  style="background-image: url('{% static 'Home/event1.jpg' %}'); background-size: cover; background-position: center; min-height: 65vh;">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.55); z-index: 1;"></div>
   <div class="container text-center position-relative" style="z-index: 2;">
-    <h1 class="display-4 fw-bold glowing-text">ॐ नमः शिवाय</h1>
-    <p class="lead mt-3">Discover the divine legacy and spiritual essence of BodhGaya Joshi Mathh</p>
+    <h1 class="display-3 fw-bold glowing-text">ॐ नमः शिवाय</h1>
+    <p class="lead mt-3 text-light fst-italic">Discover the divine legacy and spiritual essence of BodhGaya Math
+    </p>
+    <div class="ornament">✦ ✦ ✦</div>
   </div>
 </section>
 
+<!-- About -->
 <section class="about-content-section py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <h2 class="mb-4 text-center section-title">Our Sacred Journey</h2>
-        <p class="fs-5 text-justify">
-          Established with the blessings of revered sages, <strong>BodhGaya Joshi Mathh</strong> is a spiritual sanctuary rooted in the teachings of Sanatana Dharma. Our Mathh has been a center for Vedic knowledge, Advaita philosophy, and cultural heritage preservation for generations.
-        </p>
-        <p class="fs-5 text-justify">
-          From the daily rituals to grand festivals, every moment here vibrates with sacredness. Pilgrims, scholars, and seekers from across the globe visit us to seek blessings, wisdom, and peace.
-        </p>
-        <p class="fs-5 text-justify">
-          Our mission is to continue guiding humanity through spiritual evolution, cultural enlightenment, and compassionate service. We welcome you to explore, experience, and elevate your inner self with us.
-        </p>
-      </div>
-    </div>
+  <div class="container text-center">
+    <h2 class="mb-4 section-title">About Us</h2>
+    <div class="ornament">❂</div>
+    <p class="text-justify">
+      <b>The Bodhgaya Math</b> is an ancient monastery belonging to the <b>Giri</b> order of <b>Hindu Sannyasis</b>.
+      This order is one of the ten orders of the <b>Dashanami Sampradaya</b>, which was founded by <b>Adi
+        Shankaracharya</b> himself. Therefore, the Bodhgaya Math, by virtue of being a Giri-order monastery, follows the
+      spiritual and philosophical traditions laid down by <b>Shankaracharya</b>, primarily the Advaita Vedanta
+      philosophy of non-dualism. The monastery was not founded directly by Adi Shankaracharya but rather in the late
+      16th century (around 1590 A.D.) by a Gosain (a type of ascetic) named <b>Ghamandi Gir</b>, a holy devotees of this
+      order.
+      <br><br>
+      <b>The Bodhgaya Math</b> is situated on the bank of sacred river <b>Nilanjana</b>, in the midst of the garden
+      extending over the area of about <b>52 bighas</b>, and surrounded by a 10 feet high masonry wall. The huge
+      building that we are seeing at present was built in 1811. There are two gates to enter the Math, one from the
+      river side and the other from the Mahabodhi Vihar side. The entire management of Bodhgaya Math is done only by
+      monks who dedicate their whole life to the Math.
+    </p>
   </div>
 </section>
 
-<section class="vision-values-section py-5 bg-light">
+<!-- History -->
+<section class="about-content-section py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4 text-center section-title">Our History</h2>
+    <div class="ornament">𑁍</div>
+    <h5 class="fw-bold text-golden">Pre-Independence History</h5>
+    <p class="text-justify">
+      <b>The Bodhgaya Math</b> is an ancient monastery belonging to the <b>Giri order of Hindu Sannyasis</b>. This order
+      is one of the ten orders of the <b>Dashanami Sampradaya</b>, which was founded by Adi Shankaracharya himself.
+      Therefore, the Bodhgaya Math, by virtue of being a Giri-order monastery, follows the spiritual and philosophical
+      traditions laid down by Shankaracharya, primarily the Advaita Vedanta philosophy of non-dualism. The monastery was
+      not founded directly by Adi Shankaracharya but rather in the late <b>16th century (around 1590 A.D.)</b> by a
+      Gosain (a type of ascetic) named <b>Ghamandi Gir</b>, a holy devotees of this order.
+      <br><br>
+      The Bodhgaya Math is situated on the bank of sacred river <b>Nilanjana</b>, in the midst of the garden extending
+      over the area of about 52 bighas, and surrounded by a 10 feet high masonry wall. The huge building that we are
+      seeing at present was built in 1811. There are two gates to enter the Math, one from the river side and the other
+      from the Mahabodhi Vihar side. The entire management of Bodhgaya Math is done only by monks who dedicate their
+      whole life to the Math.
+
+
+      Many notable works have also been done by the Math and written documents are also available in this context like
+      after the <b>Battle of Plassey</b>, the first Indian Independence Movement was carried out, which is also called <b>Sanyasi
+      Vidroh</b>. When the British occupied Bihar, Bengal, Orissa, at that time Bodhgaya Math played a very important role
+      in the rebellion. During this movement, many Mahatmas sacrificed their life, whose Samadhi is in the premises of
+      <b>Mahabodhi Temple</b>.
+
+
+      Over the centuries, the Bodhgaya Math gained immense power and wealth, becoming one of the largest landholders in
+      the region and the Mahant took on the role of custodians of the Mahabodhi Temple and its surrounding area.
+      Bodhgaya Math had more than <b>565 branches in villages</b> and small Gurukuls were run in each of the states. Along with
+      the religious education in the Gurukul, many works were done by Bodhgaya Math in all areas like water canals and
+      drains were installed for irrigation in the area of Magadh. By the 18th century, it had become one of the largest
+      state run by the monks, which is called Bodhgaya State which was extended to the areas of present day Hazaribagh,
+      Ranchi and Chhattisgarh and Mahant Ji used to do farming on about 65000 acres of land, from Rajgir to Kakolat
+      waterfall.
+
+
+      Apart from the field of education, another notable work was done by the Math. In the 12th century, when Bakhtiyar
+      Khilji destroyed the Bhagwati temple and the Mahabodhi temple, all the Buddhist monks and worshippers went to live
+      in another place. During this period, the temple was managed by Bodhgaya Math, with Hindu rituals as the Buddha is
+      revered as an incarnation of the Hindu god Vishnu. At that time, Mahabodhi Temple was managed by the Mahants of
+      the Math and from time to time, Mahant ji has played an important role in the preservation of the temple. The
+      Mahabodhi temple that we see today was once in the form of ruins and in 1875, the Mahabodhi temple was rescued by
+      Mahant ji, the King of Burma and the East India Company.
+
+
+      Until the formation of BTMC Act in 1949, the management of Mahabodhi Temple was done by Bodhgaya Math and even
+      after the formation of BTMC Act, the management of the temple was done by the Mahant of the Math and the control
+      of the temple was given to BTMC on 12 May 1953.
+      One of the fact, the statue of <b>Lord Buddha in Mahabodhi</b> Temple was moved from Bodhgaya Math and the
+      Pran-Pratishtha of the statue was done according to Hindu rituals by the Mahant of Bodhgaya Math. This has been
+      mentioned in the Report of Buchanan made in 1895, which he had submitted to the District Judge. Also, it has been
+      described by the English officials as well and the entire saga has been described in the report of Alexander
+      Cunningham.
+    </p>
+    <h5 class="fw-bold text-golden mt-4">Post-Independence</h5>
+    <p class="'' text-justify">
+      Bodhgaya Math has done a lot of great work after independence In the field of education, when the state government
+      needed to open a university in Magadh, Math had supported to establish <b>Magadh University</b> by donating 500 acres of
+      its own land and when there was a problem in running the Gaya College that we see today, Math had donated two of
+      its estates of Aurangabad to university, so that the college could be built with the tax received from these
+      estates. Similarly, 30-40 schools or colleges like Harihar Sanskrit Vidyalaya, Shakmuni College, Homeopathic
+      College, Suryabhatt High School, Ramsahay Giri Vidyalaya have been built by Bodhgaya Math.
+
+
+      In the time of famine, the local poor residents were fed in the Math and Mahant Ji voluntarily donated land to
+      many poor people. The history of Bodhgaya Math has been very glorious, when Vinoba Bhave was leading the Land
+      Movement, gave <b>11111 acres</b> of land to distribute among the poor.
+
+
+      Along with this, excavation was done in the premises of Mahabodhi Temple under the chairmanship of Alexander
+      Cunningham in which statues related to Hinduism and Buddhism were found and all those statues were kept in the
+      Math. Later on, more than <b>100 statues were donated to the Patna Museum</b>, some have been donated to the Bodh Gaya
+      Museum and some are still present in the Bodhgaya Math.
+
+
+      According to the agreement between Mahant Ji and the Government of Bihar, Bodhgaya Math will have independent
+      rights over the temple and Mahant Ji will be a permanent member of Mahabodhi Temple. Bodhgaya Math has the right
+      over all the idols of Mahabodhi's main temple - our three Samadhis, Mata Annapurna Devi's Temple, Vishnu's Feet,
+      Five Pandava's Temple, Hari Gauri Ji, Shankar Ji, Ganesh Ji. Today, five priests of Bodhgaya Math are appointed
+      there and according to the ancient tradition, even today Lord Buddha is worshipped by the devotees of the Math in
+      the morning and evening, because in our culture we consider Lord Buddha to be the incarnation of Vishnu Ji.
+
+    </p>
+  </div>
+</section>
+
+<!-- Shivalaya -->
+<section class="about-content-section py-5">
+  <div class="container text-center">
+    <h2 class="mb-4 section-title">Shivalaya</h2>
+    <p class="''">There are <b>20 Shivalayas</b> built in the Math premises and the reason behind this is that at one time more
+      than a thousand sanyasis used to live here, so that they do not face any inconvenience in worshiping.</p>
+  </div>
+</section>
+
+<!-- Bara Darri -->
+<section class="about-content-section py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="mb-4 section-title">Bara Darri</h2>
+    <div class="ornament">✧</div>
+    <p class="">Bodhgaya is the land of <b>Lord Buddha</b>, where Lord Buddha attained enlightenment. This happened before
+      the establishment of the Math, Lord Buddha used to go to the well near the river just opposite the Mahabodhi
+      Temple and used to meditate there and realized that he has to spend his entire life in this peace. According to
+      his belief, <b>Lord Brahma</b> appeared there and explain to him that Lord Buddha has to spread this knowledge in the
+      whole world. Keeping this incident in mind, two stupas have been built there by the king of Burma, which we call
+      Brahma Stupa which is still in the Bodh Gaya Math premises.</p>
+  </div>
+</section>
+
+<!-- Samadhi -->
+<section class="about-content-section py-5">
+  <div class="container text-center">
+    <h2 class="mb-4 section-title">Samadhi</h2>
+    <div class="ornament">⚘</div>
+    <p class="">During the <b>Sanyasi Vidroh</b>, many Mahatamas sacrificed their life and whose samadhi is in the premises of
+      The Mahabodhi Temple. There are around <b>200 Samadhis of the Mahatma</b>, every Mahatma who has completed their life,
+      their body is buried in Samadhi area.</p>
+  </div>
+</section>
+
+<!-- Akshaya Patra -->
+<section class="about-content-section py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="mb-4 section-title">Akshay Patra</h2>
+    <div class="ornament">✺</div>
+    <p class=""><b>Mata Annapurna</b> is the goddess of our Math. In the 16th century, Mahant Mahadev Giri did severe penance
+      in front of the Mahabodhi temple. Pleased with this, Mata Annapurna gave <b>Akshaya Patra</b> to the Math, which is still
+      present here. The specialty of Akshaya Patra is that no metal can make grains to stick like a magnet, but if we
+      take grains to Akshaya Patra, it sticks to it like a magnet. This is the special attraction and identity of our
+      Math. Akshaya Patra has a special place in all the books written about Bodh Gaya Math.</p>
+  </div>
+</section>
+
+<!-- Vision & Values -->
+<section class="vision-values-section py-5">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-4 mb-4">
@@ -53,7 +253,7 @@
           <div class="card-body">
             <i class="fas fa-hands-helping fs-1 text-success"></i>
             <h5 class="mt-3">Our Mission</h5>
-            <p>Preserving traditions, nurturing spiritual growth, and empowering communities with timeless teachings.</p>
+            <p>Preserving traditions, nurturing spiritual growth, and empowering communities.</p>
           </div>
         </div>
       </div>
@@ -70,6 +270,7 @@
   </div>
 </section>
 
+<!-- Spiritual Guides -->
 <section class="team-section py-5">
   <div class="container">
     <h2 class="section-title text-center mb-5">Our Spiritual Guides</h2>
@@ -79,25 +280,20 @@
           <img src="{% static 'Home/guru1.jpg' %}" class="card-img-top" alt="Spiritual Guru">
           <div class="card-body">
             <h5 class="card-title">Jagadguru Sri Narasimha Bharati Mahaswamiji</h5>
-            <p class="card-text">A beacon of Advaita and a guardian of timeless wisdom, guiding seekers with profound insight.</p>
+            <p class="card-text">A beacon of Advaita and timeless wisdom, guiding seekers with profound insight.</p>
           </div>
         </div>
       </div>
-
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card text-center h-100 border-0 shadow">
           <img src="{% static 'Home/guru2.jpg' %}" class="card-img-top" alt="Spiritual Guru">
           <div class="card-body">
             <h5 class="card-title">Sri Vidushekhara Bharati Mahaswamiji</h5>
-            <p class="card-text">A modern sage preserving tradition with contemporary relevance and heartfelt compassion.</p>
+            <p class="card-text">A modern sage preserving tradition with compassion and contemporary relevance.</p>
           </div>
         </div>
       </div>
-
-      <!-- Add more if needed -->
     </div>
   </div>
 </section>
-
-
 {% endblock %}

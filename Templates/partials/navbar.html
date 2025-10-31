@@ -1,56 +1,162 @@
 {% load static %}
 <nav class="navbar-container">
-    <div class="navbar-inner container">
+  <div class="navbar-inner container">
 
-        <a class="navbar-brand logo" href="{% url 'Home:index' %}">
-            <img src="{% static "images/logo2.png" %}" alt="Logo" width="40" height="40"
-                class="d-inline-block">
-            Shree Bodh Gaya Math
-        </a>
+    <!-- Brand Logo -->
+    <a class="navbar-brand logo" href="{% url 'Home:index' %}">
+      <img src="{% static "images/logo2.png" %}" alt="Logo" width="40" height="40" class="d-inline-block">
+      Shree Bodh Gaya Math
+    </a>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">&#9776;</button>
+    <!-- Toggle Button -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">&#9776;</button>
 
-        <ul class="nav-links" id="menuList">
-            <!-- Events Dropdown -->
-            <li class="nav-item dropdown">
-                <a href="{% url 'Home:events' %}">Events</a>
-            </li>
+    <!-- Nav Links -->
+    <ul class="nav-links" id="menuList">
+      <li class="nav-item"><a href="{% url 'Home:events' %}">Events</a></li>
 
-            <!-- Pilgrim Info -->
-            <!-- <li class="nav-item dropdown">
-                    <a href="#">Pilgrim Info</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">How to Reach</a></li>
-                        <li><a href="#">Stay & Facilities</a></li>
-                        <li><a href="#">Temple Timings</a></li>
-                    </ul>
-                </li> -->
-
-            <!-- Resources -->
-            <li class="nav-item dropdown">
-                <a href="#">Resources</a>
-                <ul class="dropdown-menu">
-                    <li><a href='{% url "Home:stotras" %}'>Stotras</a></li>
-                    <li><a href="#">Scriptures</a></li>
-                    <li><a href="#">Videos</a></li>
-                </ul>
-            </li>
-
-            <!-- Online Services -->
-            <li class="nav-item dropdown">
-                <a href="#">Online Services</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Donate</a></li>
-                    <li><a href="#">Pooja Booking</a></li>
-                    <li><a href="#">E-Pass</a></li>
-                </ul>
-            </li>
-
-            <!-- About -->
-            <li><a href="{% url 'Home:about' %}">About</a></li>
-
-            <!-- Contact -->
-            <li><a href="{% url 'Home:contact' %}">Contact</a></li>
+      <li class="nav-item dropdown">
+        <a href="#">Resources</a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'Home:stotras' %}">Stotras</a></li>
+          <li><a href="#">Scriptures</a></li>
+          <li><a href="#">Videos</a></li>
         </ul>
-    </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a href="#">Online Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Donate</a></li>
+          <li><a href="#">Pooja Booking</a></li>
+          <li><a href="#">E-Pass</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item"><a href="{% url 'Home:about' %}">About</a></li>
+      <li class="nav-item"><a href="{% url 'Home:contact' %}">Contact</a></li>
+    </ul>
+  </div>
 </nav>
+
+<!-- Toggle Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menuToggle");
+    const menuList = document.getElementById("menuList");
+
+    menuToggle.addEventListener("click", function () {
+      menuList.classList.toggle("active");
+    });
+  });
+</script>
+
+<!-- Spiritual Style -->
+<style>
+  .navbar-container {
+    background: #fff8f0;
+    border-bottom: 2px solid #d4a373;
+    font-family: 'Georgia', serif;
+  }
+
+  .navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #8b2e1a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: #5b3a29;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    color: #b86b32;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #8b2e1a;
+  }
+
+  /* Dropdown */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    list-style: none;
+    background: #fff8f0;
+    padding: 10px 0;
+    margin: 0;
+    border: 1px solid #d4a373;
+    border-radius: 8px;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      background: #fffdf7;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      padding: 20px 0;
+      border-top: 2px solid #d4a373;
+
+      /* Animation */
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .nav-links.active {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .nav-links li {
+      margin: 12px 0;
+    }
+
+    .dropdown-menu {
+      position: static;
+      border: none;
+      background: none;
+      padding: 5px 0;
+      text-align: center;
+    }
+  }
+</style>
