@@ -11,10 +11,7 @@
 {% block content %}
 
 <section class="events-hero text-white text-center d-flex align-items-center justify-content-center position-relative"
-    style="background-image: url('{% static 'Home/event1.jpg' %}');
-                background-size: cover;
-                background-position: center;
-                min-height: 60vh;">
+    style="background-image: url('{% static 'images/4.webp' %}'); background-size: cover; background-position: center; min-height: 60vh;">
 
     <!-- Overlay -->
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.55); z-index: 1;">
@@ -48,6 +45,7 @@
             </li> -->
         </ul>
 
+
         <!-- Tab Content -->
         <div class="tab-content" id="eventTabsContent">
 
@@ -62,7 +60,7 @@
                                 <span class="badge bg-success mb-2">{{ event.date|date:"d M Y" }}</span>
                                 <h5 class="card-title">{{ event.title }}</h5>
                                 <p class="card-text">{{ event.description|truncatewords:20 }}</p>
-                                <a href="" class="btn btn-outline-success mt-2">Learn More</a>
+                                <a href="{{event.get_absolute_url}}" class="btn btn-outline-success mt-2">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +81,8 @@
                                 <span class="badge bg-secondary mb-2">{{ event.date|date:"d M Y" }}</span>
                                 <h5 class="card-title">{{ event.title }}</h5>
                                 <p class="card-text">{{ event.description|truncatewords:20 }}</p>
-                                <a href="{{event.get_absolute_url}}" class="btn btn-outline-secondary mt-2">Read More</a>
+                                <a href="{{event.get_absolute_url}}" class="btn btn-outline-secondary mt-2">Read
+                                    More</a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +91,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <section class="py-5">
+            <section class="py-5" id="calendar-section">
                 <div class="container">
                     <h2 class="text-center mb-4 section-title">📅 Event Calendar</h2>
                     <div id="calendar"></div>
@@ -120,7 +119,28 @@
             events: {{ event_list| safe }}
     });
     calendar.render();
-  });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var hash = window.location.hash;
+
+        if (hash) {
+            // Find the button with matching data-bs-target
+            var triggerEl = document.querySelector('[data-bs-target="' + hash + '"]');
+            if (triggerEl) {
+                var tab = new bootstrap.Tab(triggerEl);
+                tab.show();
+            }
+
+            // Scroll smoothly to the section (useful for calendar)
+            var targetEl = document.querySelector(hash);
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    });
+
+
 </script>
 
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css" rel="stylesheet">

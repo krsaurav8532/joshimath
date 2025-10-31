@@ -3,38 +3,68 @@
   background-position: center;
   background-repeat: no-repeat; min-height: 400px;">
 
-        <div class="container text-md-left">
-            <div class="row text-md-left">
+    <div class="container text-md-left">
+        <div class="row text-md-left">
+            <!-- Brand Logo + Text -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <img src="{% static 'images/logo.jpg' %}" alt="Brand Logo" class="mb-3" style="max-width: 120px;">
+                <p>
+                    Shree BodhGaya Math is dedicated to spreading knowledge, culture,
+                    and spirituality to people across the world.
+                </p>
+            </div>
 
-                <!-- Branches -->
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-                    <h6 class="mb-3">Branches</h6>
-                    <ul class="list-unstyled">
-                        <li>Andhra Pradesh</li>
-                        <li>Karnataka</li>
-                        <li>Kerala</li>
-                        <li>Maharashtra</li>
-                        <li>New Delhi</li>
-                        <li>Tamil Nadu</li>
-                        <li>Telangana</li>
-                        <li>Uttar Pradesh</li>
-                        <li>Uttarakhand</li>
-                    </ul>
-                </div>
+            <!-- Branches -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="mb-3">Branches</h6>
+                <ul class="list-unstyled">
+                    {% for b in all_branches %}
+                    <a href="{% url 'Home:branch_detail' b.slug %}" class="text-decoration-none text-dark">
+                        <li>{{b.name}}</li>
+                    </a>
 
-                <!-- Affiliate Institutions -->
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
-                    <h6 class=" mb-3">Affiliate Institutions</h6>
-                    <ul class="list-unstyled">
-                        <li>Tattvaloka</li>
-                        <li>Vidyatheertha Foundation</li>
-                        <li>SVBF (USA)</li>
-                        <li>SVBF (Canada)</li>
-                    </ul>
-                </div>
+                    {% endfor %}
+                </ul>
+            </div>
 
-                <!-- Activities & External Links -->
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+            
+
+
+
+            <!--Online Services -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class=" mb-3">Online Services</h6>
+                <ul class="list-unstyled">
+                    <a href="{% url 'Home:donate' %}" class="text-decoration-none text-dark">
+                        <li>Donate</li>
+                    </a>
+                    <a href="{% url 'Home:puja_booking' %}" class="text-decoration-none text-dark">
+                        <li>Puja Booking</li>
+                    </a>
+                    <a href="{% url 'Home:epass' %}" class="text-decoration-none text-dark">
+                        <li>E-Pass</li>
+                    </a>
+                </ul>
+            </div>
+
+            <!-- links -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="mb-3">Links</h6>
+                <ul class="list-unstyled">
+                    <a href="{% url 'Home:about' %}" class="text-decoration-none text-dark">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{% url 'Home:contact' %}" class="text-decoration-none text-dark">
+                        <li>Contact Us</li>
+                    </a>
+                    <a href="{% url 'Home:events' %}" class="text-decoration-none text-dark">
+                        <li>Events</li>
+                    </a>
+                </ul>
+            </div>
+
+            <!-- Activities & External Links -->
+            <!-- <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
                     <h6 class=" mb-3">Activities</h6>
                     <ul class="list-unstyled">
                         <li>Educational Activities</li>
@@ -47,24 +77,19 @@
                         <li>Vijaya Yatra</li>
                         <li>Online Book Store</li>
                     </ul>
-                </div>
+                </div> -->
 
-                <!-- Contact -->
-                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <h6 class=" mb-3">Contact</h6>
-                    <p>The Administrator,<br>
-                        Sringeri Math and its Properties,<br>
-                        Sringeri, Chikkamagaluru District,<br>
-                        Karnataka - 577139</p>
-                    <p><strong>Phone:</strong></p>
-                    <p>+91-08265-252525<br>+91-8265-262626<br>+91-8265-272727</p>
-                    <p><strong>Email:</strong><br>adminoffice@sringeri.net</p>
-                </div>
-
+            <!-- Contact -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4">
+                <h6 class=" mb-3">Contact</h6>
+                <p>Shree BodhGaya Math, Bodhgaya, Gaya, Bihar, 824231, India</p>
+                <p><strong>Phone:</strong></p>
+                <p>+91-9302104696</p>
+                <p><strong>Email:</strong><br>shreebodhgayamath@gmail.com</p>
             </div>
         </div>
-
-        <div class="text-center pt-3 border-top mt-4">
-            <p class="mb-0">© 2025 Sringeri Math. All Rights Reserved.</p>
-        </div>
-    </footer>
+    </div>
+    <div class="text-center pt-3 border-top mt-4">
+        <p class="mb-0">© 2025 Shree BodhGaya Math. All Rights Reserved.</p>
+    </div>
+</footer>

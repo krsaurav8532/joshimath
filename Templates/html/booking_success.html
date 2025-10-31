@@ -1,0 +1,80 @@
+{% extends 'html/base.html' %}
+
+{% block title %}✨ Puja Booking Confirmed ✨{% endblock %}
+
+{% block extra_head %}
+<style>
+    body {
+        background: #faf6f1;
+        font-family: "Poppins", sans-serif;
+    }
+    .success-container {
+        max-width: 700px;
+        margin: 3rem auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        padding: 2rem;
+        text-align: center;
+    }
+    .success-icon {
+        font-size: 3rem;
+        color: #b85c38; /* earthy tone */
+        margin-bottom: 1rem;
+    }
+    h2 {
+        color: #b85c38;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .message {
+        color: #444;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+    .booking-details {
+        text-align: left;
+        margin: 0 auto;
+        max-width: 400px;
+        background: #faf6f1;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+    }
+    .booking-details p {
+        margin: 0.6rem 0;
+        font-size: 1rem;
+        color: #333;
+    }
+    .back-btn {
+        display: inline-block;
+        margin-top: 2rem;
+        background: #b85c38;
+        color: #fff;
+        padding: 0.8rem 1.6rem;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+        background: #934628;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="success-container">
+    <div class="success-icon">🙏</div>
+    <h2>Thank You! Your Puja is Booked</h2>
+    <p class="message">We have received your request and our priest will connect with you soon.</p>
+
+    <div class="booking-details">
+        <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+        <p><strong>Puja:</strong> {{ booking.puja.name }}</p>
+        <p><strong>Date & Time:</strong> {{ booking.date|date:"d M Y" }} at {{ booking.time|time:"h:i A" }}</p>
+        <p><strong>Status:</strong> {{ booking.status }}</p>
+    </div>
+
+
+    <a href="{% url 'Home:index' %}" class="back-btn">⬅ Back to Home</a>
+</div>
+{% endblock %}

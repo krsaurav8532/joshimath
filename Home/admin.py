@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, EventImage, Announcement, AnnouncementImage, StotraCategory, Contact, Stotra, Carausel
+from .models import Event, EventImage, Announcement, AnnouncementImage, StotraCategory, Contact, Stotra, Carausel, Branches, Puja, Priest,Booking,Epass 
 from django.utils.text import slugify
 
 # Inline for EventImage
@@ -82,3 +82,29 @@ class ContactAdmin(admin.ModelAdmin):
 class CarauselAdmin(admin.ModelAdmin):
     list_display = ('title', 'image')
     search_fields = ('title',)
+
+@admin.register(Branches)
+class BranchesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'address', 'contact_number', 'slug')
+    search_fields = ('name', 'address')
+    prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(Puja)
+class PujaAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+    search_fields = ('name',)
+
+@admin.register(Priest)
+class PriestAdmin(admin.ModelAdmin):
+
+    list_display = ('name',)
+    search_fields = ('name',)
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('puja', 'priest','user_name', 'date', 'time','status')
+    search_fields = ('user_name', 'puja')
+
+@admin.register(Epass)
+class EpassAdmin(admin.ModelAdmin):
+    list_display = ('name','date_of_visit', 'number_of_people')
