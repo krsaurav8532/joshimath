@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import Event, Announcement,StotraCategory, Stotra, Carausel
-from .forms import ContactForm
+from .models import Event, Announcement,StotraCategory, Stotra, Carausel, Branches,Booking, Epass, generate_epass_image
+from .forms import ContactForm, PujaBookingForm, EpassForm
 from django.utils.text import slugify
 from django.urls import reverse
 from django.utils import timezone
@@ -30,7 +30,7 @@ def Home(request):
         'current_month_events': current_month_events,
         'announcement_groups': announcement_groups,
         'event_home': event_home,
-        'carausel': carausel
+        'carausel': carausel,
 
     })
 
@@ -139,11 +139,59 @@ def contact_view(request):
             messages.success(request, 'Your message has been sent successfully!')
             return redirect('Home:contact')  # Redirect to the same page to avoid form resubmission
     else:
-        form = ContactForm()
+        form = ContactForm() 
     return render(request, 'html/contact.html', {'form': form})
+
+def PujaBooking(request):
+    if request.method == 'POST':
+        form = PujaBookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.status = 'Pending'
+            booking.save()
+            return redirect(reverse('Home:booking_success', args=[booking.id]))
+    else:
+        form = PujaBookingForm()
+    return render(request, 'html/puja_booking.html', {'form': form})
+
+
+def booking_success(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    return render(request, 'html/booking_success.html', {'booking': booking})
+
+def E_Pass(request):
+    if request.method == 'POST':
+        form = EpassForm(request.POST)
+        if form.is_valid():
+            e_pass = form.save(commit=False)
+            e_pass.status = 'Pending'  # Set initial status to Pending
+            e_pass.save()
+            e_pass.refresh_from_db()    # Ensure ID is available
+            epass_image_path = generate_epass_image(e_pass)
+            return JsonResponse({
+                "success": True,
+                "epass_image": epass_image_path.replace("media/", "/media/"),
+                "booking_id": e_pass.id
+            })
+        else:
+            return JsonResponse({"success": False, "errors": form.errors}, status=400)
+    else:
+        form = EpassForm()
+    return render(request, 'html/epass.html', {'form': form})
 
 def Services(request):
     return render(request, 'html/services.html')
 
 def Team(request):
     return render(request, 'html/team.html')
+
+
+def branch_detail(request, slug):   # changed function name
+    branch = get_object_or_404(Branches,slug=slug)
+    return render(request, 'html/branches.html', {'branch': branch})
+
+def Donate(request):
+    return render(request, 'html/donate.html')
+
+
+

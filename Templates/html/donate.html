@@ -1,0 +1,51 @@
+<!-- about.html -->
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block title %}Donate{% endblock %}
+
+{% block extra_head %}
+<style>
+    :root {
+        --bg-light: #fdfcf8;
+        --accent: #b57f00;
+        --accent-light: #ffe8b3;
+        --text-dark: #333;
+        --text-light: #666;
+        --radius: 10px;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .donate-card {
+        max-width: 760px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        padding: 2rem;
+        text-align: center;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="donate-card">
+        <h2 class="mb-4">Bank Details</h2>
+    <h2><strong>Bank:</strong> State Bank of India</h2>
+    <p><strong>Account Name:</strong> SRI BOUDH GAYA MATH</p>
+    <p><strong>Account No:</strong> 11159921510</p>
+    <p><strong>IFSC:</strong> SBIN0000079</p>
+    <p><strong>Currency:</strong> INR</p>
+    <h5 class="py-4">
+    “Give with a pure heart — the universe will multiply your grace.”
+    </5>
+</div>
+</div>
+
+
+
+{% endblock %}

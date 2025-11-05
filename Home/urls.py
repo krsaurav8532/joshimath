@@ -12,7 +12,12 @@ urlpatterns = [
     path("events/", views.Events, name="events"),
     path("stotras/", views.Stotras, name="stotras"),
     path("announcements/", views.Announcements, name="announcements"),
+    path("donate/", views.Donate, name="donate"),
+    path("epass/", views.E_Pass, name="epass"),
+    path("puja-booking/", views.PujaBooking, name="puja_booking"),
+    path('success/<int:booking_id>/', views.booking_success, name='booking_success'),
     path('<slug:slug>/', views.event_detail, name='event_detail'),
     path('announcements/<slug:slug>/', views.announcement_detail, name='announcement_detail'),
+    path("branch/<slug:slug>/", views.branch_detail, name="branch_detail"),
 
 ]

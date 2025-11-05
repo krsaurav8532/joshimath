@@ -4,32 +4,38 @@
 
     <!-- Brand Logo -->
     <a class="navbar-brand logo" href="{% url 'Home:index' %}">
-      <img src="{% static "images/logo2.png" %}" alt="Logo" width="40" height="40" class="d-inline-block">
-      Shree Bodh Gaya Math
+      <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="40" height="40" class="d-inline-block">
+      Shree BodhGaya Math
     </a>
 
     <!-- Toggle Button -->
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">&#9776;</button>
 
+    
     <!-- Nav Links -->
     <ul class="nav-links" id="menuList">
-      <li class="nav-item"><a href="{% url 'Home:events' %}">Events</a></li>
+      <li class="nav-item dropdown"><a href="{% url 'Home:events' %}">Events</a><ul class="dropdown-menu">
+          <li><a href="{% url 'Home:events' %}#upcoming">Upcoming Events</a></li>
+          <li><a href="{% url 'Home:events' %}#past">Past Events</a></li>
+          <li><a href="{% url 'Home:events' %}#calendar-section">Calendar</a></li>
+        </ul></li>
 
-      <li class="nav-item dropdown">
+
+      <!-- <li class="nav-item dropdown">
         <a href="#">Resources</a>
         <ul class="dropdown-menu">
           <li><a href="{% url 'Home:stotras' %}">Stotras</a></li>
           <li><a href="#">Scriptures</a></li>
           <li><a href="#">Videos</a></li>
         </ul>
-      </li>
+      </li> -->
 
       <li class="nav-item dropdown">
         <a href="#">Online Services</a>
         <ul class="dropdown-menu">
-          <li><a href="#">Donate</a></li>
-          <li><a href="#">Pooja Booking</a></li>
-          <li><a href="#">E-Pass</a></li>
+          <li><a href="{% url 'Home:donate' %}">Donate</a></li>
+          <li><a href="{% url 'Home:puja_booking' %}">Pooja Booking</a></li>
+          <li><a href="{% url 'Home:epass' %}">E-Pass</a></li>
         </ul>
       </li>
 

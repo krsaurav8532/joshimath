@@ -4,8 +4,8 @@
 
 {% block title %}About{% endblock %}
 
-    {% block extra_head %}
-    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
 <style>
   .glowing-text {
     text-shadow: 0 0 15px #ffd700, 0 0 25px #fff, 0 0 40px #ffd700;
@@ -62,12 +62,14 @@
     border: 4px solid #d4af37;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
   }
-</style>    
-    {% endblock %}
+</style>
+{% endblock %}
 {% block content %}
+{% load static %}
+
 <!-- Hero -->
 <section class="about-hero-section text-white d-flex align-items-center justify-content-center position-relative"
-  style="background-image: url('{% static 'Home/event1.jpg' %}'); background-size: cover; background-position: center; min-height: 65vh;">
+  style="background-image: url('{% static 'images/8.webp' %}'); background-size: cover; background-position: center; min-height: 65vh;">
   <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.55); z-index: 1;"></div>
   <div class="container text-center position-relative" style="z-index: 2;">
     <h1 class="display-3 fw-bold glowing-text">ॐ नमः शिवाय</h1>
@@ -122,15 +124,18 @@
 
 
       Many notable works have also been done by the Math and written documents are also available in this context like
-      after the <b>Battle of Plassey</b>, the first Indian Independence Movement was carried out, which is also called <b>Sanyasi
-      Vidroh</b>. When the British occupied Bihar, Bengal, Orissa, at that time Bodhgaya Math played a very important role
+      after the <b>Battle of Plassey</b>, the first Indian Independence Movement was carried out, which is also called
+      <b>Sanyasi
+        Vidroh</b>. When the British occupied Bihar, Bengal, Orissa, at that time Bodhgaya Math played a very important
+      role
       in the rebellion. During this movement, many Mahatmas sacrificed their life, whose Samadhi is in the premises of
       <b>Mahabodhi Temple</b>.
 
 
       Over the centuries, the Bodhgaya Math gained immense power and wealth, becoming one of the largest landholders in
       the region and the Mahant took on the role of custodians of the Mahabodhi Temple and its surrounding area.
-      Bodhgaya Math had more than <b>565 branches in villages</b> and small Gurukuls were run in each of the states. Along with
+      Bodhgaya Math had more than <b>565 branches in villages</b> and small Gurukuls were run in each of the states.
+      Along with
       the religious education in the Gurukul, many works were done by Bodhgaya Math in all areas like water canals and
       drains were installed for irrigation in the area of Magadh. By the 18th century, it had become one of the largest
       state run by the monks, which is called Bodhgaya State which was extended to the areas of present day Hazaribagh,
@@ -159,7 +164,8 @@
     <h5 class="fw-bold text-golden mt-4">Post-Independence</h5>
     <p class="'' text-justify">
       Bodhgaya Math has done a lot of great work after independence In the field of education, when the state government
-      needed to open a university in Magadh, Math had supported to establish <b>Magadh University</b> by donating 500 acres of
+      needed to open a university in Magadh, Math had supported to establish <b>Magadh University</b> by donating 500
+      acres of
       its own land and when there was a problem in running the Gaya College that we see today, Math had donated two of
       its estates of Aurangabad to university, so that the college could be built with the tax received from these
       estates. Similarly, 30-40 schools or colleges like Harihar Sanskrit Vidyalaya, Shakmuni College, Homeopathic
@@ -173,7 +179,8 @@
 
       Along with this, excavation was done in the premises of Mahabodhi Temple under the chairmanship of Alexander
       Cunningham in which statues related to Hinduism and Buddhism were found and all those statues were kept in the
-      Math. Later on, more than <b>100 statues were donated to the Patna Museum</b>, some have been donated to the Bodh Gaya
+      Math. Later on, more than <b>100 statues were donated to the Patna Museum</b>, some have been donated to the Bodh
+      Gaya
       Museum and some are still present in the Bodhgaya Math.
 
 
@@ -192,7 +199,8 @@
 <section class="about-content-section py-5">
   <div class="container text-center">
     <h2 class="mb-4 section-title">Shivalaya</h2>
-    <p class="''">There are <b>20 Shivalayas</b> built in the Math premises and the reason behind this is that at one time more
+    <p class="''">There are <b>20 Shivalayas</b> built in the Math premises and the reason behind this is that at one
+      time more
       than a thousand sanyasis used to live here, so that they do not face any inconvenience in worshiping.</p>
   </div>
 </section>
@@ -202,10 +210,12 @@
   <div class="container text-center">
     <h2 class="mb-4 section-title">Bara Darri</h2>
     <div class="ornament">✧</div>
-    <p class="">Bodhgaya is the land of <b>Lord Buddha</b>, where Lord Buddha attained enlightenment. This happened before
+    <p class="">Bodhgaya is the land of <b>Lord Buddha</b>, where Lord Buddha attained enlightenment. This happened
+      before
       the establishment of the Math, Lord Buddha used to go to the well near the river just opposite the Mahabodhi
       Temple and used to meditate there and realized that he has to spend his entire life in this peace. According to
-      his belief, <b>Lord Brahma</b> appeared there and explain to him that Lord Buddha has to spread this knowledge in the
+      his belief, <b>Lord Brahma</b> appeared there and explain to him that Lord Buddha has to spread this knowledge in
+      the
       whole world. Keeping this incident in mind, two stupas have been built there by the king of Burma, which we call
       Brahma Stupa which is still in the Bodh Gaya Math premises.</p>
   </div>
@@ -216,8 +226,10 @@
   <div class="container text-center">
     <h2 class="mb-4 section-title">Samadhi</h2>
     <div class="ornament">⚘</div>
-    <p class="">During the <b>Sanyasi Vidroh</b>, many Mahatamas sacrificed their life and whose samadhi is in the premises of
-      The Mahabodhi Temple. There are around <b>200 Samadhis of the Mahatma</b>, every Mahatma who has completed their life,
+    <p class="">During the <b>Sanyasi Vidroh</b>, many Mahatamas sacrificed their life and whose samadhi is in the
+      premises of
+      The Mahabodhi Temple. There are around <b>200 Samadhis of the Mahatma</b>, every Mahatma who has completed their
+      life,
       their body is buried in Samadhi area.</p>
   </div>
 </section>
@@ -227,8 +239,10 @@
   <div class="container text-center">
     <h2 class="mb-4 section-title">Akshay Patra</h2>
     <div class="ornament">✺</div>
-    <p class=""><b>Mata Annapurna</b> is the goddess of our Math. In the 16th century, Mahant Mahadev Giri did severe penance
-      in front of the Mahabodhi temple. Pleased with this, Mata Annapurna gave <b>Akshaya Patra</b> to the Math, which is still
+    <p class=""><b>Mata Annapurna</b> is the goddess of our Math. In the 16th century, Mahant Mahadev Giri did severe
+      penance
+      in front of the Mahabodhi temple. Pleased with this, Mata Annapurna gave <b>Akshaya Patra</b> to the Math, which
+      is still
       present here. The specialty of Akshaya Patra is that no metal can make grains to stick like a magnet, but if we
       take grains to Akshaya Patra, it sticks to it like a magnet. This is the special attraction and identity of our
       Math. Akshaya Patra has a special place in all the books written about Bodh Gaya Math.</p>
@@ -277,22 +291,13 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card text-center h-100 border-0 shadow">
-          <img src="{% static 'Home/guru1.jpg' %}" class="card-img-top" alt="Spiritual Guru">
+          <img src="{% static 'images/guruji.jpg' %}" class="card-img-top" alt="Spiritual Guru">
           <div class="card-body">
-            <h5 class="card-title">Jagadguru Sri Narasimha Bharati Mahaswamiji</h5>
-            <p class="card-text">A beacon of Advaita and timeless wisdom, guiding seekers with profound insight.</p>
+            <h5 class="card-title">Mahant Ji, Bodhgaya Math</h5>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card text-center h-100 border-0 shadow">
-          <img src="{% static 'Home/guru2.jpg' %}" class="card-img-top" alt="Spiritual Guru">
-          <div class="card-body">
-            <h5 class="card-title">Sri Vidushekhara Bharati Mahaswamiji</h5>
-            <p class="card-text">A modern sage preserving tradition with compassion and contemporary relevance.</p>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>

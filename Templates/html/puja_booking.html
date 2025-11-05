@@ -1,0 +1,97 @@
+{% extends 'html/base.html' %}
+
+{% block title %}🙏 Book a Puja{% endblock %}
+
+{% block extra_head %}
+<style>
+    body {
+        background: #faf6f1;
+        font-family: "Poppins", sans-serif;
+    }
+    .booking-container {
+        max-width: 760px;
+        margin: 2rem auto;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        padding: 2rem;
+        text-align: center;
+    }
+    .booking-header {
+        margin-bottom: 1.5rem;
+    }
+    .booking-header h1 {
+        font-size: 2rem;
+        color: #b85c38; /* warm earthy tone */
+        margin-bottom: 0.25rem;
+    }
+    .booking-header p {
+        color: #666;
+        font-size: 1rem;
+    }
+    form#booking-form {
+        text-align: left;
+    }
+    form#booking-form p {
+        margin-bottom: 1.2rem;
+    }
+    label {
+        font-weight: 600;
+        color: #444;
+    }
+    input, select, textarea {
+        width: 100%;
+        padding: 0.65rem 0.85rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+    button {
+        display: inline-block;
+        background: #b85c38;
+        color: #fff;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    button:hover {
+        background: #934628;
+    }
+    .puja-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #b85c38;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="booking-container">
+    <div class="booking-header">
+        <div class="puja-icon">🕉️</div>
+        <h1>Book Your Puja</h1>
+        <p>Please fill out the details below to schedule your spiritual service.</p>
+    </div>
+
+    <form id="booking-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div style="text-align:center; margin-top: 1.5rem;">
+            <button type="submit">✨ Confirm Booking ✨</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        console.log('Puja booking form ready.');
+    });
+</script>
+{% endblock %}
