@@ -636,74 +636,6 @@ p {
 
 
 
-/* Footer */
-/* Footer Collage Image */
-.responsive-image-container {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    /* max-width: 1280px; */
-    margin: 0 auto;
-    /* border-radius: 12px; */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Collage Image with gradient border and animation */
-.footer-collage-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-image: linear-gradient(to left, #65A29A, #4D809F, #98649D, #D04843, #F47527, #FFA500);
-    border-image-slice: 1;
-    animation: fadeIn 1.5s ease-in-out;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-/* Hover effect for interactivity */
-.footer-collage-image:hover {
-    transform: scale(1.01);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Optional overlay */
-.footer-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-family: 'PT Serif', serif;
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    text-align: center;
-    white-space: nowrap;
-}
-
-/* Responsive height adjustments */
-@media (max-width: 1024px) {
-    .footer-collage-image {
-        height: 260px;
-    }
-}
-
-@media (max-width: 768px) {
-    .footer-collage-image {
-        height: 220px;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-collage-image {
-        height: 180px;
-    }
-}
-
 /* Fade-in animation */
 @keyframes fadeIn {
     0% {
@@ -717,33 +649,6 @@ p {
     }
 }
 
-
-footer ul li {
-    margin-bottom: 8px;
-}
-
-.list-unstyled li {
-    margin-bottom: 8px;
-    font-family: Inter, sans-serif;
-    font-size: 12px;
-}
-
-footer h6 {
-    color: var(--pilgrim-hover);
-    /* optional highlight color */
-    font-family: "PT Serif", serif;
-    font-size: 15px;
-}
-
-footer a {
-    color: #4d809f;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-    color: #306584;
-}
 
 :root {
     --gray-100: #f7f2ec;
